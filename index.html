@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Aby ❤️ David</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:linear-gradient(180deg,#020024,#090979,#000000);
+color:white;
+font-family:Arial, sans-serif;
+text-align:center;
+overflow:hidden;
+}
+
+.luna{
+width:120px;
+height:120px;
+background:#eee;
+border-radius:50%;
+box-shadow:0 0 40px white;
+margin:20px;
+animation:flotar 4s ease-in-out infinite;
+}
+
+@keyframes flotar{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+.personas{
+display:flex;
+align-items:center;
+gap:40px;
+}
+
+.persona{
+font-size:24px;
+}
+
+.hilo{
+height:2px;
+width:150px;
+background:red;
+box-shadow:0 0 10px red;
+animation:latido 2s infinite;
+}
+
+@keyframes latido{
+0%,100%{opacity:1;}
+50%{opacity:0.3;}
+}
+
+.mensaje{
+max-width:600px;
+margin-top:20px;
+font-size:18px;
+line-height:1.6;
+}
+
+.contador{
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>El hilo rojo del destino ❤️</h1>
+
+<div class="personas">
+<div class="persona">👦 David</div>
+<div class="hilo"></div>
+<div class="luna"></div>
+<div class="hilo"></div>
+<div class="persona">👧 Aby</div>
+</div>
+
+<div class="mensaje">
+A veces la vida une caminos de maneras que nadie puede explicar,
+como si existiera un hilo invisible conectando dos almas,
+sin importar el tiempo, la distancia o las circunstancias.
+Y quizás no fue casualidad…
+Quizás siempre estuvo escrito que nuestras historias se cruzaran.
+Que esta luna sea testigo de todo lo bonito que puede nacer
+cuando dos personas se encuentran en el momento correcto
+y deciden caminar juntas.
+</div>
+
+<div class="contador" id="contador"></div>
+
+<script>
+const fechaInicio = new Date("2025-11-15T00:00:00");
+
+function actualizarContador(){
+const ahora = new Date();
+const diff = ahora - fechaInicio;
+
+const dias = Math.floor(diff/(1000*60*60*24));
+const horas = Math.floor(diff/(1000*60*60)%24);
+const minutos = Math.floor(diff/(1000*60)%60);
+const segundos = Math.floor(diff/1000%60);
+
+document.getElementById("contador").innerHTML =
+"Tiempo juntos: " +
+dias+" días "+
+horas+" h "+
+minutos+" min "+
+segundos+" s";
+}
+
+setInterval(actualizarContador,1000);
+actualizarContador();
+</script>
+
+</body>
+</html>
