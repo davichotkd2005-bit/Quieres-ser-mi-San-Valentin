@@ -1,0 +1,70 @@
+<!DOCTYPE html><html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }.card {
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        max-width: 500px;
+        animation: fadeIn 2s ease;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    .heart {
+        font-size: 3rem;
+        animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+</head>
+<body><div class="card">
+    <div class="heart">❤️</div>
+    <h1>Feliz San Valentín</h1>
+    <p>
+        Hoy solo quiero recordarte lo especial que eres.
+        Gracias por existir, por tu sonrisa y por cada momento.
+    </p>
+    <p>
+        Con cariño,
+        <br>
+        Para ti ✨
+    </p>
+</div>
+
+</body>
+</html>
