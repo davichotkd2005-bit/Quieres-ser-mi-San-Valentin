@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hilo Rojo</title><style>
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at bottom, #020111 0%, #000000 70%);
+}
+
+/* Fondo estrellas */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.stars::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow:
+        20px 30px white, 40px 80px white, 100px 120px white,
+        200px 50px white, 300px 200px white, 400px 150px white,
+        500px 90px white, 600px 40px white, 700px 220px white,
+        800px 160px white, 900px 60px white, 1000px 140px white;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+.container {
+    position: relative;
+    max-width: 800px;
+    padding: 20px;
+    animation: fadeIn 3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.message {
+    font-size: 1.3em;
+    line-height: 1.8em;
+    min-height: 220px;
+}
+
+/* Luna */
+.moon {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, #fff, #ddd 60%, #bbb);
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(255,255,255,0.4);
+    animation: floatMoon 6s ease-in-out infinite;
+}
+
+@keyframes floatMoon {
+    0% { transform: translate(-50%,0px); }
+    50% { transform: translate(-50%,-10px); }
+    100% { transform: translate(-50%,0px); }
+}
+
+/* Hilo rojo animado */
+.thread {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.thread path {
+    stroke: red;
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawThread 6s linear forwards;
+}
+
+@keyframes drawThread {
+    to { stroke-dashoffset: 0; }
+}
+
+/* Botón sorpresa */
+button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    background: linear-gradient(45deg,#ff4b6e,#ff758c);
+    color: white;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,100,120,0.7);
+}
+
+.surprise {
+    margin-top: 20px;
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+}
+
+.surprise.show {
+    opacity: 1;
+}
+
+</style></head><body><div class="stars"></div><div class="container"><div class="moon"></div><svg class="thread" viewBox="0 0 800 400">
+<path d="M50 200 Q 200 50 400 200 T 750 200" />
+</svg><h1>Aby ❤️ David</h1><div class="message" id="text"></div><button onclick="showSurprise()">Sorpresa ✨</button>
+
+<div class="surprise" id="surprise">
+Desde el 15 de Noviembre de 2025… y contando cada día juntos 🌙
+</div></div><script>
+
+/* MENSAJE COMPLETO */
+const message = `A veces la vida conecta caminos de formas que no se pueden explicar.\n\nComo si existiera un hilo invisible que une dos almas,\nsin importar el tiempo, la distancia o las circunstancias.\n\nTal vez no fue casualidad…\nTal vez el destino ya estaba escribiendo nuestra historia.\n\nQue esta luna sea testigo de todo lo bonito que puede crecer\ncuando dos personas se encuentran en el momento correcto.\n\nY desde el 15 de Noviembre de 2025,\nhemos empezado a escribir algo que vale la pena cuidar cada día.`;
+
+let i = 0;
+function typeWriter() {
+    if (i < message.length) {
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 35);
+    }
+}
+
+typeWriter();
+
+function showSurprise() {
+    document.getElementById("surprise").classList.add("show");
+}
+
+</script></body>
+</html>
